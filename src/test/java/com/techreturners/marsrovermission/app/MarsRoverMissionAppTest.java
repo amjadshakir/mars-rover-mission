@@ -20,7 +20,7 @@ public class MarsRoverMissionAppTest {
         assertEquals(Direction.W,rover.getPosition().getDirection());
     }
     @Test
-    public  void checkRoverDirectionWhenTurnLeftFromSouth(){
+    public void checkRoverDirectionWhenTurnLeftFromSouth(){
         //arrange
         Coordinates maxCoordinates = new Coordinates(7,5);
         Plateau plateau = new Plateau(maxCoordinates);
@@ -31,5 +31,31 @@ public class MarsRoverMissionAppTest {
         rover.turnLeft();
         //assert
         assertEquals(Direction.E,rover.getPosition().getDirection());
+    }
+    @Test
+    public void checkRoverDirectionWhenTurnLeftFromEast(){
+        //arrange
+        Coordinates maxCoordinates = new Coordinates(8,9);
+        Plateau plateau = new Plateau(maxCoordinates);
+        Coordinates roverCoordinates = new Coordinates(4,5);
+        Position position = new Position(roverCoordinates,Direction.E);
+        Rover rover = new Rover(position,plateau);
+        //act
+        rover.turnLeft();
+        //assert
+        assertEquals(Direction.N,rover.getPosition().getDirection());
+    }
+    @Test
+    public void checkRoverDirectionWhenTurnLeftFromWest(){
+        //arrange
+        Coordinates maxCoordinates = new Coordinates(5,6);
+        Plateau plateau = new Plateau(maxCoordinates);
+        Coordinates roverCoordinates = new Coordinates(4,5);
+        Position position = new Position(roverCoordinates,Direction.W);
+        Rover rover = new Rover(position,plateau);
+        //act
+        rover.turnLeft();
+        //assert
+        assertEquals(Direction.S,rover.getPosition().getDirection());
     }
 }
