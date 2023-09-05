@@ -18,7 +18,18 @@ public class MarsRoverMissionAppTest {
         rover.turnLeft();
         //assert
         assertEquals(Direction.W,rover.getPosition().getDirection());
-
-
+    }
+    @Test
+    public  void checkRoverDirectionWhenTurnLeftFromSouth(){
+        //arrange
+        Coordinates maxCoordinates = new Coordinates(7,5);
+        Plateau plateau = new Plateau(maxCoordinates);
+        Coordinates roverCoordinates = new Coordinates(3,5);
+        Position position = new Position(roverCoordinates,Direction.S);
+        Rover rover = new Rover(position,plateau);
+        //act
+        rover.turnLeft();
+        //assert
+        assertEquals(Direction.E,rover.getPosition().getDirection());
     }
 }
