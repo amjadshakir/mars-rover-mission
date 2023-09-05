@@ -28,7 +28,11 @@ public class Rover extends Vehicle implements Movable{
 
     }
     public void turnRight(){
-        position.setDirection(Direction.E);
+        switch (position.getDirection()){
+            case N -> position.setDirection(Direction.E);
+            case S -> position.setDirection(Direction.W);
+        }
+
 
     }
 }
