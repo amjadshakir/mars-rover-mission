@@ -110,4 +110,19 @@ public class MarsRoverMissionAppTest {
         //assert
         assertEquals(Direction.N,rover.getPosition().getDirection());
     }
+    @Test
+    public void checkRoverCoordinatesWhenMoveForward(){
+        //arrange
+        Coordinates maxCoordinates = new Coordinates(5,5);
+        Plateau plateau = new Plateau(maxCoordinates);
+        Coordinates roverCoordinates = new Coordinates(1,0);
+        Position position = new Position(roverCoordinates,Direction.N);
+        Rover rover = new Rover(position,plateau);
+        //act
+        rover.move();
+        //assert
+        assertEquals(1,rover.getPosition().getCoordinates().getXCoordinate());
+        assertEquals(1,rover.getPosition().getCoordinates().getYCoordinate());
+    }
+
 }

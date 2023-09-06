@@ -15,7 +15,9 @@ public class Rover extends Vehicle implements Movable{
         return plateau;
     }
     public void move(){
-
+        switch (position.getDirection()) {
+            case N -> position.getCoordinates().setYCoordinate(position.getCoordinates().getYCoordinate() + 1);
+        }
     }
     public void turnLeft(){
         switch (position.getDirection()){
@@ -23,6 +25,7 @@ public class Rover extends Vehicle implements Movable{
             case S -> position.setDirection(Direction.E);
             case E -> position.setDirection(Direction.N);
             case W -> position.setDirection(Direction.S);
+            default -> System.out.println("Please enter a valid input");
         }
 
 
@@ -33,6 +36,7 @@ public class Rover extends Vehicle implements Movable{
             case S -> position.setDirection(Direction.W);
             case E -> position.setDirection(Direction.S);
             case W -> position.setDirection(Direction.N);
+            default -> System.out.println("Please enter a valid input");
         }
 
 
