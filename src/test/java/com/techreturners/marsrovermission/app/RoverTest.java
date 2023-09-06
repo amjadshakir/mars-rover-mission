@@ -1,17 +1,24 @@
 package com.techreturners.marsrovermission.app;
 
 import com.techreturners.marsrovermission.model.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MarsRoverMissionAppTest {
+public class RoverTest {
+   private Coordinates maxCoordinates;
+   private Plateau plateau;
+   private Coordinates roverCoordinates;
+    @BeforeEach
+    public void setUp(){
+        maxCoordinates = new Coordinates(5,6);
+        plateau = new Plateau(maxCoordinates);
+        roverCoordinates = new Coordinates(1,0);
+    }
     @Test
     public void checkRoverDirectionWhenTurnLeftFromNorth(){
         //arrange
-        Coordinates maxCoordinates = new Coordinates(5,5);
-        Plateau plateau = new Plateau(maxCoordinates);
-        Coordinates roverCoordinates = new Coordinates(2,3);
         Position position = new Position(roverCoordinates, Direction.N);
         Rover rover = new Rover(position,plateau);
         //act
@@ -22,9 +29,6 @@ public class MarsRoverMissionAppTest {
     @Test
     public void checkRoverDirectionWhenTurnLeftFromSouth(){
         //arrange
-        Coordinates maxCoordinates = new Coordinates(7,5);
-        Plateau plateau = new Plateau(maxCoordinates);
-        Coordinates roverCoordinates = new Coordinates(3,5);
         Position position = new Position(roverCoordinates,Direction.S);
         Rover rover = new Rover(position,plateau);
         //act
@@ -35,9 +39,6 @@ public class MarsRoverMissionAppTest {
     @Test
     public void checkRoverDirectionWhenTurnLeftFromEast(){
         //arrange
-        Coordinates maxCoordinates = new Coordinates(8,9);
-        Plateau plateau = new Plateau(maxCoordinates);
-        Coordinates roverCoordinates = new Coordinates(4,5);
         Position position = new Position(roverCoordinates,Direction.E);
         Rover rover = new Rover(position,plateau);
         //act
@@ -48,9 +49,6 @@ public class MarsRoverMissionAppTest {
     @Test
     public void checkRoverDirectionWhenTurnLeftFromWest(){
         //arrange
-        Coordinates maxCoordinates = new Coordinates(5,6);
-        Plateau plateau = new Plateau(maxCoordinates);
-        Coordinates roverCoordinates = new Coordinates(4,5);
         Position position = new Position(roverCoordinates,Direction.W);
         Rover rover = new Rover(position,plateau);
         //act
@@ -61,9 +59,6 @@ public class MarsRoverMissionAppTest {
     @Test
     public void checkRoverDirectionWhenTurnRightFromNorth(){
         //arrange
-        Coordinates maxCoordinates = new Coordinates(5,6);
-        Plateau plateau = new Plateau(maxCoordinates);
-        Coordinates roverCoordinates = new Coordinates(4,5);
         Position position = new Position(roverCoordinates,Direction.N);
         Rover rover = new Rover(position,plateau);
         //act
@@ -74,9 +69,6 @@ public class MarsRoverMissionAppTest {
     @Test
     public void checkRoverDirectionWhenTurnRightFromSouth(){
         //arrange
-        Coordinates maxCoordinates = new Coordinates(5,6);
-        Plateau plateau = new Plateau(maxCoordinates);
-        Coordinates roverCoordinates = new Coordinates(4,5);
         Position position = new Position(roverCoordinates,Direction.S);
         Rover rover = new Rover(position,plateau);
         //act
@@ -87,9 +79,6 @@ public class MarsRoverMissionAppTest {
     @Test
     public void checkRoverDirectionWhenTurnRightFromEast(){
         //arrange
-        Coordinates maxCoordinates = new Coordinates(5,6);
-        Plateau plateau = new Plateau(maxCoordinates);
-        Coordinates roverCoordinates = new Coordinates(4,5);
         Position position = new Position(roverCoordinates,Direction.E);
         Rover rover = new Rover(position,plateau);
         //act
@@ -100,9 +89,6 @@ public class MarsRoverMissionAppTest {
     @Test
     public void checkRoverDirectionWhenTurnRightFromWest(){
         //arrange
-        Coordinates maxCoordinates = new Coordinates(5,6);
-        Plateau plateau = new Plateau(maxCoordinates);
-        Coordinates roverCoordinates = new Coordinates(4,5);
         Position position = new Position(roverCoordinates,Direction.W);
         Rover rover = new Rover(position,plateau);
         //act
@@ -111,11 +97,8 @@ public class MarsRoverMissionAppTest {
         assertEquals(Direction.N,rover.getPosition().getDirection());
     }
     @Test
-    public void checkRoverCoordinatesWhenMoveForward(){
+    public void checkRoverCoordinatesWhenMoveNorthward(){
         //arrange
-        Coordinates maxCoordinates = new Coordinates(5,5);
-        Plateau plateau = new Plateau(maxCoordinates);
-        Coordinates roverCoordinates = new Coordinates(1,0);
         Position position = new Position(roverCoordinates,Direction.N);
         Rover rover = new Rover(position,plateau);
         //act
