@@ -17,6 +17,7 @@ public class Rover extends Vehicle implements Movable{
     public void move(){
         switch (position.getDirection()) {
             case N -> position.getCoordinates().setYCoordinate(position.getCoordinates().getYCoordinate() + 1);
+            case E -> position.getCoordinates().setXCoordinate(position.getCoordinates().getXCoordinate() + 1);
         }
     }
     public void turnLeft(){

@@ -107,5 +107,16 @@ public class RoverTest {
         assertEquals(1,rover.getPosition().getCoordinates().getXCoordinate());
         assertEquals(1,rover.getPosition().getCoordinates().getYCoordinate());
     }
+    @Test
+    public void checkRoverCoordinatesWhenMoveEastward(){
+        //arrange
+        Position position = new Position(roverCoordinates,Direction.E);
+        Rover rover = new Rover(position,plateau);
+        //act
+        rover.move();
+        //assert
+        assertEquals(2,rover.getPosition().getCoordinates().getXCoordinate());
+        assertEquals(0,rover.getPosition().getCoordinates().getYCoordinate());
+    }
 
 }
