@@ -1,4 +1,4 @@
-package com.techreturners.marsrovermission.app;
+package com.techreturners.marsrovermission.model;
 
 import com.techreturners.marsrovermission.model.*;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,20 +7,17 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RoverTest {
-   private Coordinates maxCoordinates;
-   private Plateau plateau;
+
    private Coordinates roverCoordinates;
     @BeforeEach
     public void setUp(){
-        maxCoordinates = new Coordinates(5,6);
-        plateau = new Plateau(maxCoordinates);
         roverCoordinates = new Coordinates(1,0);
     }
     @Test
     public void checkRoverDirectionWhenTurnLeftFromNorth(){
         //arrange
         Position position = new Position(roverCoordinates, Direction.N);
-        Rover rover = new Rover(position,plateau);
+        Rover rover = new Rover(position);
         //act
         rover.turnLeft();
         //assert
@@ -30,7 +27,7 @@ public class RoverTest {
     public void checkRoverDirectionWhenTurnLeftFromSouth(){
         //arrange
         Position position = new Position(roverCoordinates,Direction.S);
-        Rover rover = new Rover(position,plateau);
+        Rover rover = new Rover(position);
         //act
         rover.turnLeft();
         //assert
@@ -40,7 +37,7 @@ public class RoverTest {
     public void checkRoverDirectionWhenTurnLeftFromEast(){
         //arrange
         Position position = new Position(roverCoordinates,Direction.E);
-        Rover rover = new Rover(position,plateau);
+        Rover rover = new Rover(position);
         //act
         rover.turnLeft();
         //assert
@@ -50,7 +47,7 @@ public class RoverTest {
     public void checkRoverDirectionWhenTurnLeftFromWest(){
         //arrange
         Position position = new Position(roverCoordinates,Direction.W);
-        Rover rover = new Rover(position,plateau);
+        Rover rover = new Rover(position);
         //act
         rover.turnLeft();
         //assert
@@ -60,7 +57,7 @@ public class RoverTest {
     public void checkRoverDirectionWhenTurnRightFromNorth(){
         //arrange
         Position position = new Position(roverCoordinates,Direction.N);
-        Rover rover = new Rover(position,plateau);
+        Rover rover = new Rover(position);
         //act
         rover.turnRight();
         //assert
@@ -70,7 +67,7 @@ public class RoverTest {
     public void checkRoverDirectionWhenTurnRightFromSouth(){
         //arrange
         Position position = new Position(roverCoordinates,Direction.S);
-        Rover rover = new Rover(position,plateau);
+        Rover rover = new Rover(position);
         //act
         rover.turnRight();
         //assert
@@ -80,7 +77,7 @@ public class RoverTest {
     public void checkRoverDirectionWhenTurnRightFromEast(){
         //arrange
         Position position = new Position(roverCoordinates,Direction.E);
-        Rover rover = new Rover(position,plateau);
+        Rover rover = new Rover(position);
         //act
         rover.turnRight();
         //assert
@@ -90,7 +87,7 @@ public class RoverTest {
     public void checkRoverDirectionWhenTurnRightFromWest(){
         //arrange
         Position position = new Position(roverCoordinates,Direction.W);
-        Rover rover = new Rover(position,plateau);
+        Rover rover = new Rover(position);
         //act
         rover.turnRight();
         //assert
@@ -100,7 +97,7 @@ public class RoverTest {
     public void checkRoverCoordinatesWhenMoveNorthward(){
         //arrange
         Position position = new Position(roverCoordinates,Direction.N);
-        Rover rover = new Rover(position,plateau);
+        Rover rover = new Rover(position);
         //act
         rover.move();
         //assert
@@ -111,7 +108,7 @@ public class RoverTest {
     public void checkRoverCoordinatesWhenMoveEastward(){
         //arrange
         Position position = new Position(roverCoordinates,Direction.E);
-        Rover rover = new Rover(position,plateau);
+        Rover rover = new Rover(position);
         //act
         rover.move();
         //assert
@@ -122,7 +119,7 @@ public class RoverTest {
     public void checkRoverCoordinatesWhenMoveWestward(){
         //arrange
         Position position = new Position(roverCoordinates,Direction.W);
-        Rover rover = new Rover(position,plateau);
+        Rover rover = new Rover(position);
         //act
         rover.move();
         //assert
@@ -133,7 +130,7 @@ public class RoverTest {
     public void checkRoverCoordinatesWhenMoveSouthward(){
         //arrange
         Position position = new Position(roverCoordinates,Direction.S);
-        Rover rover = new Rover(position,plateau);
+        Rover rover = new Rover(position);
         //act
         rover.move();
         //assert
