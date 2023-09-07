@@ -27,19 +27,8 @@ public class MarsRoverMissionApp {
         RoverService roverService = new RoverService(xCoordinateOfRover,yCoordinateOfRover, Direction.valueOf(directionOfRover));
         String roverMovementRules = input.next();
         System.out.println("Your New Rover Position is " + roverMovementRules);
-
-        for (Character c : roverMovementRules.toCharArray()) {
-            if (c == RoverMovement.LEFT.getValue().charAt(0)) {
-            roverService.getRover().turnLeft();
-            }
-            if (c == RoverMovement.RIGHT.getValue().charAt(0)) {
-                roverService.getRover().turnRight();
-            }
-            if (c == RoverMovement.MOVE.getValue().charAt(0)) {
-                roverService.getRover().move();
-            }
-        }
-            System.out.println(roverService.getRover().getPosition().getCoordinates().getXCoordinate() + " " + roverService.getRover().getPosition().getCoordinates().getYCoordinate() + " " + roverService.getRover().getPosition().getDirection());
+        roverService.maneuveringRover(roverMovementRules);
+        System.out.println(roverService.getRover().getPosition().getCoordinates().getXCoordinate() + " " + roverService.getRover().getPosition().getCoordinates().getYCoordinate() + " " + roverService.getRover().getPosition().getDirection());
     }
 }
 
