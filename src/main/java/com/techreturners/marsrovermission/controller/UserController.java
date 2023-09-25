@@ -8,6 +8,7 @@ public class UserController {
     public UserController(){
         UserService userService = new UserService(new Scanner(System.in));
         userService.handleUserInput();
+
     }
 }
 

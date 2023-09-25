@@ -34,13 +34,13 @@ public class UserService {
         } while (scanner.hasNextLine());
         return coordinateOfPlateau;
     }
-    int handleUserInputCoordinateValueForTheRoverPosition(String coordinate, int xCoordinateOfPlateau) {
+    int handleUserInputCoordinateValueForTheRoverPosition(String coordinate, int coordinateOfPlateau) {
         int roverCoordinate = 0;
         do {
             try {
                 System.out.println("Please enter the "+ coordinate + " coordinate for the rover position");
                 roverCoordinate = scanner.nextInt();
-                while (roverCoordinate < 0 || roverCoordinate > xCoordinateOfPlateau) {
+                while (roverCoordinate < 0 || roverCoordinate > coordinateOfPlateau) {
                     System.out.println("You entered a negative number or number greater than plateau size for the " + coordinate + " coordinate, " + roverCoordinate + " of rover position. Please enter a valid integer value.");
                     roverCoordinate = scanner.nextInt();
                 }
@@ -73,7 +73,7 @@ public class UserService {
             do {
                 movement = scanner.next().toUpperCase();
                 isMovementRulesInvalid = validateMovementRules(movement);
-            } while (isMovementRulesInvalid == true);
+            } while (isMovementRulesInvalid);
             break;
         }
         return movement;
@@ -102,6 +102,7 @@ public class UserService {
             RoverService roverService = new RoverService(roverX, roverY, roverDirection);
             String movement = handleUserInputForMovementRules();
             roverService.maneuveringRover(movement, plateauService, obstacles);
+            System.out.println("The latest rover position is :");
             roverService.displayCurrentRoverPosition();
             System.out.println("You can terminate the application now or continue with another set of data. If you choose to terminate the application, please enter \"exit\", else enter \"continue\"");
             obstacles.add(roverService.getRover().getPosition().getCoordinates());
