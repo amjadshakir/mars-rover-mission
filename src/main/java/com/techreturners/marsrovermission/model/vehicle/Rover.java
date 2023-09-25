@@ -1,6 +1,10 @@
-package com.techreturners.marsrovermission.model;
+package com.techreturners.marsrovermission.model.vehicle;
 
-public class Rover extends Vehicle implements Movable{
+import com.techreturners.marsrovermission.model.Direction;
+import com.techreturners.marsrovermission.model.Movable;
+import com.techreturners.marsrovermission.model.Position;
+
+public class Rover extends Vehicle implements Movable {
     private Position position;
     public Rover(Position position){
         this.position = position;
@@ -40,5 +44,8 @@ public class Rover extends Vehicle implements Movable{
         }
 
 
+    }
+    public String toString(){
+        return getPosition().getCoordinates().getXCoordinate() + " "  + getPosition().getCoordinates().getYCoordinate() + " " + getPosition().getDirection().toString();
     }
 }

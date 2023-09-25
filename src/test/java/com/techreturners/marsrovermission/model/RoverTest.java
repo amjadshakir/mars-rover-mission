@@ -1,13 +1,10 @@
 package com.techreturners.marsrovermission.model;
 
-import com.techreturners.marsrovermission.model.*;
+import com.techreturners.marsrovermission.model.vehicle.Rover;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class RoverTest {
-
    private Coordinates roverCoordinates;
     @BeforeEach
     public void setUp(){
@@ -137,5 +134,4 @@ public class RoverTest {
         assertEquals(1,rover.getPosition().getCoordinates().getXCoordinate());
         assertEquals(-1,rover.getPosition().getCoordinates().getYCoordinate());
     }
-
 }

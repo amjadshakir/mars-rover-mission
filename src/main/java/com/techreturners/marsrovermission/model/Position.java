@@ -17,9 +17,6 @@ public class Position {
         return direction;
     }
 
-    public void setCoordinates(Coordinates coordinates){
-        this.coordinates = coordinates;
-    }
     public  void setDirection(Direction direction){
         this.direction = direction;
     }
