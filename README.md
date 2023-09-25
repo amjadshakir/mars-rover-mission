@@ -1,93 +1,51 @@
 # Mars Rover Mission
 
-## How the Mars Rover Works
+## How to run the application
+The application is dependent on java 17, maven 3 and intellij. PLease install these as a pre-requisite.
+Clone the repository locally using the following command.
+`git clone git@github.com:amjadshakir/mars-rover-mission.git`
 
-This section contains definitions for the Rover and Plateau, and the input/output
-expected.
+Open the repo using intellij IDE.
+Right-click the MarsRoverMissionApp.java and select run the main() method.   
 
-## 🗺 Representation of a Rover’s Position on the Plateau
+## Key features of the application
+The input is taken via console app.
+The program will prompt to enter valid value for the maximum x coordinate of the plateau.
+The program will prompt to enter valid value for the maximum y coordinate of the plateau.
+If the plateau's max x coordinate is negative integer or zero or non integer value, 
+the program will prompting for valid input until user gets it right.
+If the plateau's max y coordinate is negative integer or zero or non integer value, 
+the program will prompting for valid input until user gets it right.
 
-The Plateau is divided into a grid. A Rover’s position is represented by x and y
-co-ordinates and the letters N, S, W, E to represent North, South, West, East (the four
-cardinal compass points) respectively.
+The program will prompt to enter valid value for the x coordinate of the rover.
+The program will prompt to enter valid value for the y coordinate of the rover.
+If the rover's x coordinate is negative integer or non integer value, 
+the program will prompt for valid input until user gets it right.
+If the rover's y coordinate is negative integer or non integer value, 
+the program will prompt for valid input until user gets it right.
 
-**Example**
+The program will prompt to enter valid value for the direction of the rover.
+If the rover's direction is not N or S or W or E or n or s or w or e, 
+the program will prompt for valid input until user gets it right.
 
-0 0 N
+The program will prompt to enter valid string for the rover movement rule.
+If the movement rules contains any other value other than L or M or R or l or m or r one or more times , 
+the program will prompt for valid input until user gets it right.
 
-This means the Rover is at the bottom-left corner facing in the North direction.
-N.B. Assume that the square directly North from (x, y) is (x, y+1), and the square directly
-East from (x, y) is (x + 1, y)
+During the rover movement if the rover either hits the boundary or any obstacles, 
+the program will print out a message that particular action will be skipped and 
+the program will move to the next movement.
+The program will print out the final position of the rover and the program will prompt the user to continue or exit. 
+If the user chooses to exit, the program will terminate. 
+Else the user can continue to deploy another rover on the plateau.  
 
---------------------
-### 🗺 Instructing a Rover to Move Around the Plateau
 
-💻 To move a Rover around the Plateau, a string of letters is sent to a Rover.
+## The assumptions made for the application
+The plateau is rectangular. The lowest coordinates of the plateau is (0,0)
 
-Here are the letters and their resultant action:
+## The approach used for the application
+ The user input is taken via a console application
 
-| **Letter** |**Action**|
-|--------|-------|
-| L      |Spins the Rover 90 degrees Left without moving from the current coordinate point|
-| R      |Spins the Rover 90 degrees Right without moving from the current coordinate point|
-| M      |Moves the Rover forward by one grid point, maintaining the same heading/orientation|
-
-**N.B.** Assume that the square directly North from (x, y) is (x, y+1).
-
-### ⌨️ Inputs into the Program
-
-**First Line of Input to the Program**
-
-The first line inputted into the program represents the upper-right coordinates of the
-Plateau.
-
-5 5
-
-This Plateau has maximum (x, y) co-ordinates of (5, 5).
-**N.B.** Assume that the lower-left coordinate is (0, 0).
-
-**Subsequent Lines of Input into the Program - Input to Rovers**
-
-This represents the instructions to move the rovers.
-Each rover receives **two lines of input.**
-
-**First Line of Input to a Rover**
-The Rover’s position is represented by two integers representing the X and Y
-coordinates and a letter representing where the Rover is facing (its orientation).
-
-1 2 N
-
-**Second Line of Input to a Rover**
-A string of letters representing the instructions to move the Rover around the Plateau.
-
-**📏 Movement Rules**
-
-Rovers move sequentially, this means that the first Rover needs to finish moving first
-before the next one can move.
-
-**➡️ Output**
-
-For each Rover, the output represents its final position (final coordinates and where it is
-facing).
-
-------------------------------
-### Example Test Case
-
-**Lines of Input to the Program:**
-5 5
-
-1 2 N
-
-LMLMLMLMM
-
-3 3 E
-
-MMRMMRMRRM
-
-**Expected Output:**
-
-1 3 N
-
-5 1 E
-
---------------------
+## Future thoughts
+Rover can use special cameras and robot arms for collecting samples
+ 
