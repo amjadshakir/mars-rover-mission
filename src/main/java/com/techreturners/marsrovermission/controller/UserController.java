@@ -6,9 +6,8 @@ import java.util.Scanner;
 
 public class UserController {
     public UserController(){
-        Scanner scanner = new Scanner(System.in);
-        UserService userService = new UserService(scanner);
+        UserService userService = new UserService(new Scanner(System.in));
         userService.handleUserInput();
     }
-    }
+}
 
